@@ -8,8 +8,8 @@ zumindest die folgenden Angaben umfassen:
 
 PROJEKTBEZEICHNUNG: a collection of methods to make working with java a bit nicer
 PROJEKTZWECK: /
-VERSION oder DATUM: 1.0
-WIE IST DAS PROJEKT ZU STARTEN: you dont. this is only a collection of methods that must be imported( import Fast.Fast; ) in order to be used
+VERSION oder DATUM: 1.1
+WIE IST DAS PROJEKT ZU STARTEN: you dont. this is only a collection of methods that must be imported( import Fast.*;) in order to be used
 AUTOR(EN): Jonathan Gamble
 BENUTZERHINWEISE: /
 DOKUMENTATION:
@@ -36,3 +36,41 @@ DOKUMENTATION:
                                                     
                     Fast.clear_file()               |Alles was sich in der datei ist,  | Fast.clear_file("test.txt");
                                                     |wird geloescht.                   |
+                                                    
+                    GUI.create_window()             |Ein neues fenster wird erstellt.  | GUI.create_window();
+                                                    |Es hat noch keine attribute.      |
+                                                
+                    GUI.setup_window(String name,   |Dem zuvor erstelltem window werden| GUI.setup_window("Mein Name", 1280, 720, false, true);
+                      int width, int height,        |attribute wie ein name, width und |
+                      boolean resizable,            |height, resizable (ob die groesse |
+                      boolean center_on_screen)     |veraendert werden kann) und       |
+                                                    |center_on_screen (ob es in der    |
+                                                    |mitte des bildschirms erscheinen  |
+                                                    |soll) zugetielt.                  |
+                                        
+                    GUI.set_window_background       |Veraender die hintergrundfarbe des| GUI.set_window_background_color(Color.YELLOW);
+                      _color(Color color)           |windows.                          |
+                      
+                    GUI.make_text(String text)      |Erstellt einen text, welcher      | GUI.make_text("Das ist ein Text.");
+                                                    |spaeter mit der GUI.add_labels()  |
+                                                    |methode zum window hinzugefuegt   |
+                                                    |wird. Sie returned auch eine      |
+                                                    |Referenz zu dem erstellten JLabel.|
+                                                    
+                    GUI.make_image(String image)    |Erstellt ein image von einem      | GUI.make_image("mein_bild.png");
+                                                    |dateipfad, welches spaeter mit der|
+                                                    |GUI.add_labels() methode zum      |
+                                                    |window hinzugefuegt werden muss.  |
+                                                    |Sie returned auch eine Referenz zu|
+                                                    |dme erstellten Jlabel.            |
+                                                    
+                    GUI.add_labels()                |Nachdem alle GUI.make_text() und  | Gui.add_labels();
+                                                    |GUI.make_image() mathoden         |
+                                                    |aufgerufen wurden, werden hiermit |
+                                                    |alle texte und images zum window  |
+                                                    |hinzufefuegt. Dies sollte and ende|
+                                                    |des programms gemacht werden.     |
+                                                    
+                    GUI.get_window()                |Returned eine referenz zu dem     | JFrame mein_window = GUI.get_window();
+                                                    |mit GUI.create_window() erstelltem|
+                                                    |window.                           |
