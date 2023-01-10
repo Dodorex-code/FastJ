@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.lang.Math;
 
 public class Fast
 {
@@ -19,7 +20,6 @@ public class Fast
     public static void delay(int dur) throws InterruptedException
     {
         TimeUnit.SECONDS.sleep(dur);
-
     }
     public static String input()
     {
@@ -28,17 +28,11 @@ public class Fast
     }
     public static void write_to_file(String filepath, String data) throws IOException
     {
-        
         File file = new File(filepath);
         FileWriter fw = new FileWriter(file);
         PrintWriter pw = new PrintWriter(fw);
         pw.write(data);
         pw.close();
-        /**
-        File destfile = new File(filepath);
-        FileWriter fw = new FileWriter(destfile);
-        PrintWriter pw = new PrintWriter(fw);
-        */
     }
     public static String read_file(String filepath) throws FileNotFoundException
     {
@@ -52,5 +46,54 @@ public class Fast
     public static void clear_file(String filepath) throws IOException
     {
         write_to_file(filepath, "");
+    }
+    public class fmath
+    {
+        public static double InvSqrt(int value)
+        {
+            return (Math.sqrt(value)) * -1;
+        }
+        public static double Dot2D(double x1, double y1, double x2, double y2)
+        {
+            return x1*x2+y1*y2;
+        }
+        public static double Mag2D(double x, double y) //vector laenge
+        {
+            return Math.sqrt(x*x+y*y);
+        }
+        public static double Mag3D(double x, double y, double z)//vector laenge
+        {
+            return Math.sqrt(x*x+y*y+z*z);
+        }
+        public static double Dot3D(double x1, double y1, double z1, double x2, double y2, double z2)
+        {
+            return x1*x2+y1*y2+z1*z2;
+        }
+        public static double Dist2D(double x1, double y1, double x2, double y2)
+        {
+            double dx,dy;
+            if(x1>x2){dx=x1-x2;} else{dx=x2-x1;}
+            if(y1>y2){dy=y1-y2;} else{dy=y2-y1;}
+            return Math.sqrt(dx*dx+dy*dy);
+        }
+        public static double Dist3D(double x1, double y1, double z1, double x2, double y2, double z2)
+        {
+            double dx,dy,dz;
+            if(x1>x2){dx=x1-x2;} else{dx=x2-x1;}
+            if(y1>y2){dy=y1-y2;} else{dy=y2-y1;}
+            if(z1>z2){dz=z1-z2;} else{dz=z2-z1;}
+            return Math.sqrt(dx*dx+dy*dy+dz*dz);
+        }
+        public static double Angle2D(double x1, double y1, double x2, double y2)
+        {
+            /**
+            double dotproduct = Dot2D(x1,y1,x2,y2);
+            double LenV = y2;
+            double LenU = Mag2D(x1,y1);
+            double CosTh = dotproduct / (LenU*LenV);
+            return Math.toDegrees(Math.acos(CosTh));
+            */
+            return Math.toDegrees(Math.acos(Dot2D(x1,y1,x2,y2)/(Mag2D(x1,y1)*y2)));
+        }
     }
 }

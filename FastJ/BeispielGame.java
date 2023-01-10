@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class BeispielGame implements Runnable, KeyListener//klasse
 {
@@ -14,8 +15,9 @@ public class BeispielGame implements Runnable, KeyListener//klasse
         GUI.create_window();
         GUI.setup_window("Mein Window", 720, 480, false, true);
         JFrame window = GUI.get_window();
+        GUI.set_window_background_color(Color.BLACK);
         window.addKeyListener(this);
-        plb = GUI.make_image("Police.png");
+        plb = GUI.make_image("D:/FastJ/SpaceShooterRedux/PNG/playerShip1_red.png");
         /**
          * EIN NOCH NICHT FERTIGES ANIMATIONS SYSTEM
         ImageIcon png1 = new ImageIcon("Police_animation/1.png");
@@ -23,35 +25,32 @@ public class BeispielGame implements Runnable, KeyListener//klasse
         ImageIcon png3 = new ImageIcon("Police_animation/3.png");
         ImageIcon[] pngfr = {png1,png2,png3};
         GUI.animate(plb, pngfr, true); 
+        
         */
         plb.setOpaque(true);
         GUI.add_labels();
+        plb.setHorizontalAlignment(JLabel.CENTER);
+        plb.setVerticalAlignment(JLabel.BOTTOM);
     }
     //input mit KeyListener
     @Override
     public void keyReleased(KeyEvent e)
     {
-        
     }
     @Override
     public void keyPressed(KeyEvent e)
     {
-        
+        switch(e.getKeyCode())
+        {
+            case 37: plb.setLocation(plb.getX() - player_speed, plb.getY());
+            break;
+            case 39: plb.setLocation(plb.getX() + player_speed, plb.getY());
+            break;
+        }
     }
     @Override
     public void keyTyped(KeyEvent e)
     {
-        switch(e.getKeyChar())
-        {
-            case 'a': plb.setLocation(plb.getX() - player_speed, plb.getY());
-            break;
-            case 'd': plb.setLocation(plb.getX() + player_speed, plb.getY());
-            break;
-            case 'w': plb.setLocation(plb.getX(), plb.getY() - player_speed);
-            break;
-            case 's': plb.setLocation(plb.getX(), plb.getY() + player_speed);
-            break;
-        }
     }
     private boolean running;  //generierte variable. NICHT VERÄNDERN!
     private final double update_rate = 1.0d/60.0d;  //generierte variable. NICHT VERÄNDERN!

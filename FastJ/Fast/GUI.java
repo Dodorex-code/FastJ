@@ -6,6 +6,11 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.util.List;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Image;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 
 public class GUI
 {
@@ -38,15 +43,26 @@ public class GUI
     public static JLabel make_text(String text)
     {
         JLabel label = new JLabel(text);
-        //jf_global.add(label);
         labels_gl.add(label);
         return label;
     }
-    public static JLabel make_image(String image)
+    public static JLabel make_image(String ima)
     {
         JLabel label = new JLabel();
-        label.setIcon(new ImageIcon(image));
-        //jf_global.add(label);
+        label.setSize(99, 71);
+        //create buffered image
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(ima));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //create scaled buffered image
+        Image dimg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+        //create Image icon from scaled buffered image
+        ImageIcon imageIcon = new ImageIcon(dimg);
+        
+        label.setIcon(imageIcon);
         labels_gl.add(label);
         return label;
     }
