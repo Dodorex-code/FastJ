@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=VZR
+comment1.params=
+comment1.target=VZR()
+comment2.params=n\ max
+comment2.target=boolean\ IstVZ(int,\ int)
+comment3.params=end
+comment3.target=void\ VZIR(int)
+comment4.params=end
+comment4.target=void\ VZIR2(int)
+numComments=5
