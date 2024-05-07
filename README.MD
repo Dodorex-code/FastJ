@@ -84,6 +84,8 @@ DOKUMENTATION:
                     GUI.animate()                   |Muss in der update() methode      | GUI.animate();
                                                     |aufgerufen werden, um alles, was  |
                                                     |animiert werden soll zu animieren |
+                                                    |ACHTUNG: DAS IST KEIN ASYNCHRONER |
+                                                    |PROZESS!                          |
                     
                     Play.generate_glc_in_editor(    |generiert als output einen code,  |
                       String class_name, int fps)   |welcher in die angegebene klasse  |
