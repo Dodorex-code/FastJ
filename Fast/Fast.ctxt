@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Fast
+comment1.params=
+comment1.target=Fast()
+comment2.params=str
+comment2.target=void\ print(java.lang.String)
+comment3.params=dur
+comment3.target=void\ delay(int)
+comment4.params=
+comment4.target=java.lang.String\ input()
+comment5.params=filepath\ data
+comment5.target=void\ write_to_file(java.lang.String,\ java.lang.String)
+comment6.params=filepath
+comment6.target=java.lang.String\ read_file(java.lang.String)
+comment7.params=filepath
+comment7.target=void\ clear_file(java.lang.String)
+numComments=8

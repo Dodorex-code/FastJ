@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Play
+comment1.params=
+comment1.target=Play()
+comment2.params=class_name\ fps
+comment2.target=void\ generate_glc_in_editor(java.lang.String,\ java.lang.String)
+numComments=3

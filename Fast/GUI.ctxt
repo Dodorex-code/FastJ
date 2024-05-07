@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=GUI
+comment1.params=
+comment1.target=GUI()
+comment10.params=image\ frame_sequence
+comment10.target=void\ registerAnimation(javax.swing.JLabel,\ javax.swing.ImageIcon[])
+comment11.params=
+comment11.target=void\ animate()
+comment2.params=
+comment2.target=void\ create_window()
+comment3.params=name\ width\ height\ resizable\ center_on_screen
+comment3.target=void\ setup_window(java.lang.String,\ int,\ int,\ boolean,\ boolean)
+comment4.params=color
+comment4.target=void\ set_window_background_color(java.awt.Color)
+comment5.params=text
+comment5.target=javax.swing.JLabel\ make_text(java.lang.String)
+comment6.params=ima\ width\ height
+comment6.target=javax.swing.JLabel\ make_image(java.lang.String,\ int,\ int)
+comment7.params=
+comment7.target=void\ add_labels()
+comment8.params=
+comment8.target=javax.swing.JFrame\ get_window()
+comment9.params=prefix\ count\ suffix\ width\ height
+comment9.target=javax.swing.ImageIcon[]\ create_frame_sequence(java.lang.String,\ int,\ java.lang.String,\ int,\ int)
+numComments=12
