@@ -1,11 +1,3 @@
-PROJEKTBEZEICHNUNG: a collection of methods to make working with java a bit nicer
-PROJEKTZWECK: /
-VERSION oder DATUM: 1.1
-WIE IST DAS PROJEKT ZU STARTEN: you dont. this is only a collection of methods that must be imported( import Fast.*;) in order to be used
-AUTOR(EN): /
-BENUTZERHINWEISE: /
-DOKUMENTATION:
-                    ------------FUNKTION------------|------------ERKLAERUNG------------|------------BEISPIEL------------
                     Fast.print(String str)          |Der String str wird in der konsole| Fast.print("Hallo Welt!");
                                                     |ausgegeben wie es bei             |
                                                     |System.out.println() der fall ist.|
