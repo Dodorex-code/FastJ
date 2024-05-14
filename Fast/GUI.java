@@ -16,10 +16,11 @@ public class GUI
 {
     public static JFrame jf_global = null;
     public static List<JLabel> labels_gl = new ArrayList<>();
-    private static List<JLabel> animated_labels_gl = new ArrayList<JLabel>();
-    private static List<ImageIcon[]> animated_labels_frame_sequences_gl = new ArrayList<ImageIcon[]>();
+    public static List<JLabel> animated_labels_gl = new ArrayList<JLabel>();
+    public static List<ImageIcon[]> animated_labels_frame_sequences_gl = new ArrayList<ImageIcon[]>();
     // bei animated_labels_frame_sequences_counter_gl ist [0] der eigentlicher counter und [1] die maximale frame anzahl
-    private static List<Integer[]> animated_labels_frame_sequences_counter_gl = new ArrayList<Integer[]>();
+    public static List<Integer[]> animated_labels_frame_sequences_counter_gl = new ArrayList<Integer[]>();
+    public static int animation_read_buffer = 0;
     public GUI()
     {
     }
@@ -117,19 +118,41 @@ public class GUI
     }
     public static void animate()
     {
-        for(int i=0; i<animated_labels_gl.size();i++)
+        int i = 0;
+        int current_frame_counter = animated_labels_frame_sequences_counter_gl.get(i)[0];
+        ImageIcon current_frame = animated_labels_frame_sequences_gl.get(i)[current_frame_counter];
+        animated_labels_gl.get(i).setIcon(current_frame);
+        // dec counter
+        Integer[] new_arr = {current_frame_counter+1, animated_labels_frame_sequences_counter_gl.get(i)[1]};
+        animated_labels_frame_sequences_counter_gl.set(i, new_arr);
+        if(new_arr[0] > animated_labels_frame_sequences_counter_gl.get(i)[1]-1)
         {
-            int current_frame_counter = animated_labels_frame_sequences_counter_gl.get(i)[0];
-            ImageIcon current_frame = animated_labels_frame_sequences_gl.get(i)[current_frame_counter];
-            animated_labels_gl.get(i).setIcon(current_frame);
-            // dec counter
-            Integer[] new_arr = {current_frame_counter+1, animated_labels_frame_sequences_counter_gl.get(i)[1]};
-            animated_labels_frame_sequences_counter_gl.set(i, new_arr);
-            if(new_arr[0] > animated_labels_frame_sequences_counter_gl.get(i)[1]-1)
-            {
-                Integer[] new_arr_2 = {0, animated_labels_frame_sequences_counter_gl.get(i)[1]};
-                animated_labels_frame_sequences_counter_gl.set(i, new_arr_2);
-            }
+            Integer[] new_arr_2 = {0, animated_labels_frame_sequences_counter_gl.get(i)[1]};
+            animated_labels_frame_sequences_counter_gl.set(i, new_arr_2);
         }
+    }
+    public boolean is_image_intersecting_other_image(int image_width, int image_height, int image_x_position, int image_y_position, int other_image_width, int other_image_height, int other_image_x_position, int other_image_y_position)
+    {
+        int tw = image_width;
+        int th = image_height;
+        int rw = other_image_width;
+        int rh = other_image_height;
+        if(rw <= 0 || rh <= 0 || tw<= 0 || th <= 0)
+        {
+            return false;
+        }
+        int tx = image_x_position;
+        int ty = image_y_position;
+        int rx = other_image_x_position;
+        int ry = other_image_y_position;
+        rw += rx;
+        rh+= ry;
+        tw += tx;
+        th += ty;
+        //      overflow || intersect
+        return ((rw < rx || rw > tx) &&
+                (rh < ry || rh > ty) &&
+                (tw < tx || tw > rx) &&
+                (th < ty || th > ry));
     }
 }

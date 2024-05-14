@@ -12,6 +12,7 @@ public class BeispielGame implements Runnable, KeyListener//klasse
     int plb_scale = 2;
     ImageIcon[] plb_frames;
     int plb_frames_counter = 0;
+    int[] move_buffer = {0,0,0,0};
     public BeispielGame() throws InterruptedException
     {
         GUI.create_window();
@@ -31,19 +32,30 @@ public class BeispielGame implements Runnable, KeyListener//klasse
     @Override
     public void keyReleased(KeyEvent e)
     {
+        switch(e.getKeyCode())
+        {
+            case 37: move_buffer[0] = 0;
+            break;
+            case 39: move_buffer[1] = 0;
+            break;
+            case 38: move_buffer[2] = 0;
+            break;
+            case 40: move_buffer[3] = 0;
+            break;
+        }
     }
     @Override
     public void keyPressed(KeyEvent e)
     {
         switch(e.getKeyCode())
         {
-            case 37: plb.setLocation(plb.getX() - player_speed, plb.getY());
+            case 37: move_buffer[0] = 1;
             break;
-            case 39: plb.setLocation(plb.getX() + player_speed, plb.getY());
+            case 39: move_buffer[1] = 1;
             break;
-            case 38: plb.setLocation(plb.getX(), plb.getY() - player_speed);
+            case 38: move_buffer[2] = 1;
             break;
-            case 40: plb.setLocation(plb.getX(), plb.getY() + player_speed);
+            case 40: move_buffer[3] = 1;
             break;
         }
     }
@@ -55,14 +67,24 @@ public class BeispielGame implements Runnable, KeyListener//klasse
     private final double update_rate = 1.0d/60.0d;  //generierte variable. NICHT VERÄNDERN!
     public void update() //wird 60 mal pro sekunde aufgerufen. Hier werden sachen für die applikation berechnet.
     {
-        /*
-        plb.setIcon(plb_frames[plb_frames_counter]);
-        plb_frames_counter++;
-        if(plb_frames_counter > plb_frames.length-1)
+        
+        if(move_buffer[0] == 1) //W
         {
-            plb_frames_counter = 0;
+            plb.setLocation(plb.getX() - player_speed, plb.getY());
         }
-        */
+        if(move_buffer[1] == 1) //S
+        {
+            plb.setLocation(plb.getX() + player_speed, plb.getY());
+        }
+        if(move_buffer[2] == 1) //A
+        {
+            plb.setLocation(plb.getX(), plb.getY() - player_speed);
+        }
+        if(move_buffer[3] == 1) //D
+        {
+            plb.setLocation(plb.getX(), plb.getY() + player_speed);
+        }
+        
         GUI.animate();
     }
     public void render() //wird 60 mal pro sekunde aufgerufen. Hier wird alles auf den bildschirm gerendert.
