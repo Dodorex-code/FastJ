@@ -78,6 +78,20 @@
                                                     |animiert werden soll zu animieren |
                                                     |ACHTUNG: DAS IST KEIN ASYNCHRONER |
                                                     |PROZESS!                          |
+
+                    GUI.addKeyboard(Keyboard        |Fügt dem Fenster ein keyboard     | Keyboard meinKeyboard = new Keyboard();
+                    kboard)                         |hinzu, welches genutzt werden kann| GUI.addKeyboard(meinKeyboard);
+                                                    |um zu prüfen, welche keyboard-keys|
+                                                    |gerade gedrückt sind              |
+                    
+                    Keyboard.isKeyPressed(String    |gibt einen boolean zurück je      | Keyboard meinKeyboard = new Keyboard();
+                    key)                            |nachdem, ob der gweünschte key    | GUI.addKeyboard(meinKeyboard);
+                                                    |gedrückt ist oder nicht           |
+                                                    |ACHTUNG: setzt vorraus, dass zuvor| if(meinKeyboard.isKeyPressed("w"))
+                                                    |eine instanz der Keyboard Klasse  | {
+                                                    |mit GUI.addKeyboard() dem Fenster |    //code hier
+                                                    |hinzugefügt wurde                 | }
+
                     
                     Play.generate_glc_in_editor(    |generiert als output einen code,  |
                       String class_name, int fps)   |welcher in die angegebene klasse  |

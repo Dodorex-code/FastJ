@@ -1,5 +1,8 @@
 package Fast;
 import Fast.Fast;
+import FastMath.MathJ;
+import FastMath.Vector2D;
+import FastMath.Vector3D;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -154,5 +157,9 @@ public class GUI
                 (rh < ry || rh > ty) &&
                 (tw < tx || tw > rx) &&
                 (th < ty || th > ry));
+    }
+    public static void addKeyboard(Keyboard kboard)
+    {
+        jf_global.addKeyListener(kboard);
     }
 }

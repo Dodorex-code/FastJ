@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ITuple
+comment1.params=n1\ n2
+comment1.target=ITuple(int,\ int)
+numComments=2

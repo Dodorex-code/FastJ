@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=MathJ
+comment1.params=
+comment1.target=MathJ()
+comment2.params=a\ b
+comment2.target=double\ dist2d(Vector2D,\ Vector2D)
+comment3.params=a\ b
+comment3.target=double\ dist3d(Vector3D,\ Vector3D)
+comment4.params=a\ b
+comment4.target=double\ dot2d(Vector2D,\ Vector2D)
+comment5.params=a\ b
+comment5.target=double\ dot3d(Vector3D,\ Vector3D)
+comment6.params=a\ b
+comment6.target=Vector3D\ cross3d(Vector3D,\ Vector3D)
+comment7.params=a\ b
+comment7.target=double\ angle2d(Vector2D,\ Vector2D)
+comment8.params=a\ b
+comment8.target=double\ angle3d(Vector3D,\ Vector3D)
+numComments=9

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Vector2D
+comment1.params=vector3d_x\ vector3d_y
+comment1.target=Vector2D(double,\ double)
+comment2.params=
+comment2.target=double\ magnitude()
+numComments=3
